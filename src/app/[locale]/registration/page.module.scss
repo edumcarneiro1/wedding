@@ -1,0 +1,21 @@
+@use '../../styles/variables' as *;
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  z-index: 1;
+  color: $secondaryStrong;
+  background-color: $white;
+
+  @media (min-width: $breakPointTablet) {
+    width: 80%;
+  }
+
+  @media (min-width: $breakPointPC) {
+    width: 50%;
+  }
+}
+
+

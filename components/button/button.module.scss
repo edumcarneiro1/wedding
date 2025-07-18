@@ -1,0 +1,41 @@
+@use "../../src/app/styles/variables" as *;
+
+.button {
+    width: 100%;
+    height: $spacer-l;
+    border-radius: 12px;
+    border: none;
+    font-size: $font-s;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-family: $font-family;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.primary {
+    background-color: $primary;
+    color: $white;
+
+    &:hover {
+        background-color: $white;
+        color: $primary;
+        border: 1px solid $primary;
+    }
+}
+
+.secondary {
+    background-color: $white;
+    color: $primary;
+    font-weight: bold;
+    border: 1px solid $primary;
+
+    &:hover {
+        background-color: $primary;
+        color: $white;
+    }
+}
