@@ -1,6 +1,6 @@
 import styles from "./page.module.scss";
 import { getGuests } from '@lib/api';
-import { Guest } from '@lib/types';
+import { Guest, Hotel } from '@lib/types';
 import { JSX, } from "react";
 import { redirect } from 'next/navigation';
 
@@ -51,6 +51,8 @@ export default async function Home({ params }: { params: Params }) {
     return elements;
   }
 
+  const availableToHotel : boolean = guests[0].hotel !== Hotel.NOT_AVAILABLE;
+
 
   return (
     <div className={styles.page}>
@@ -63,8 +65,15 @@ export default async function Home({ params }: { params: Params }) {
         <div className={styles.body}>
           <h3>{translations[locale].greetings} {salut()} </h3>
           <p>{translations[locale].homepageText}</p>
-          <p>{translations[locale].homepageHotel}</p>
-          <p>{translations[locale].homepageConfirmation}</p>
+          <p>{translations[locale].homepageSubText}</p>
+          { availableToHotel &&  
+            <>
+              <p>{translations[locale].homepageHotel}</p>
+              <p>{translations[locale].homepageSubHotell}</p>
+            </> 
+          }
+          <p>{translations[locale].homepageConfirmation}:</p>
+          
         </div>
         <div className={styles.actions}>
           <StartClientWrapper guests={guests} locale={locale}/>

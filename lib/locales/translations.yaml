@@ -4,9 +4,11 @@ pt:
   greetings: Ola
   errorText: Infelizmente não conseguimos encontrar o teu convite, por favor entra em contacto com o Eduardo ou a Rita para te darem de novo o url.
   errorSubText: Se já recebeste o url para teu convite, por favor abre sempre a totalidade deste.
-  homepageText: Chegou a hora do samba, temos o prazer de os convidar para a nossa celebração de casamento. Fazemos muito gosto em contar com vocês.
-  homepageHotel: Gostariamos de contar com vocês não só na celebração como a passar uns dias connosco no hotel Parque de Ofir
-  homepageConfirmation: Agora é hora da burocracia, precisamos de recolher alguns dados para confirmação até dia x de Julho
+  homepageText: Chegou a hora de reunirmos os nossos mais queridos para, juntos, celebrarmos a nossa união.
+  homepageSubText: Fazemos muito gosto em contar com vocês.
+  homepageHotel: A festa prolongar-se-á pela noite dentro, por isso reservamos os quartos de hotel para os mais chegados passarem connosco o fim de semana.
+  homepageSubHotel: No dia seguinte, prolongamos os festejos com um revigorante brunch até aos últimos acordes.
+  homepageConfirmation: Confirmas a vossa presença? Vamos à burocracia
   startButton: Começar
   name: Nome
   surname: Apelido
@@ -18,11 +20,23 @@ en:
   greetings: Hi
   errorText: Unfortunatly we do not found your invite, please get in touch with Eduardo or Rita to get yours.
   errorSubText: If you already received the URL for your invite, always use it to open the website.
-  homepageText: Now is time to samba, I would like to invite you for our wedding celebration. We are happy to have you with us on this important date.
-  homepageHotel: We would like to invite you not just for the celebration day, but to stay with us over the weekend at hotel Parque de Ofir.
-  homepageConfirmation: Now it's time for the bureaucracy, we need to get some data from you for the confirmation until X of July.
+  homepageText: The time has come to gather our dearest ones and, together, celebrate our union.
+  homepageSubText: We would be truly delighted to have you with us.
+  homepageHotel: The party will go on into the night, so we have reserved hotel rooms for our closest guests.
+  homepageSubHotel: The following day, we will continue the celebration with a invigorating brunch until the final notes.
+  homepageConfirmation: Are you in? Now, for the formalities
   startButton: Start
   name: Name
   surname: Surname
   restrictionsTitle: Food Restrictions
   restrictionsPlaceholder: Write here your food restrictions
+
+
+
+
+
+
+
+
+
+

@@ -6,7 +6,9 @@ declare module '*.yaml' {
       errorText: string;
       errorSubText: string;
       homepageText: string;
+      homepageSubText: string;
       homepageHotel: string;
+      homepageSubHotel: string;
       homepageConfirmation: string;
       startButton: string;
       name: string;

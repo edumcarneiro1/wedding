@@ -15,11 +15,11 @@ enum Type {
     Kid
 }
 
-enum Hotel {
-    NotAvailable,
-    NotConfirmed,
-    Yes,
-    No
+export enum Hotel {
+    NOT_AVAILABLE,
+    NOT_CONFIRMED,
+    YES,
+    NO
 }
 
 enum Status {
