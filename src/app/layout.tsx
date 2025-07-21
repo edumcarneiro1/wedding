@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./styles/globals.scss";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import { GuestProvider } from './context/GuestContext';
 
@@ -22,7 +23,7 @@ export default function RootLayout({
     <html lang="pt">
       <body>
         <div className={'layout_container'}>
-  
+          <SpeedInsights/>
           <GuestProvider>
             {children}
           </GuestProvider>
