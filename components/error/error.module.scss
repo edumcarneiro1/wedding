@@ -9,6 +9,7 @@
   z-index: 1;
   color: $white;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  height: 100vh;
 
   @media (min-width: $breakPointTablet) {
     width: 80%;
@@ -16,6 +17,10 @@
 
   @media (min-width: $breakPointPC) {
     width: 50%;
+  }
+  
+  .landingImage {
+    z-index: 0;
   }
 
   h1 {

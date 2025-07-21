@@ -3,6 +3,7 @@ import { getGuests } from '@lib/api';
 import { Guest, Hotel } from '@lib/types';
 import { JSX, } from "react";
 import { redirect } from 'next/navigation';
+import Image from "next/legacy/image";
 
 import translations from '@lib/locales/translations.yaml';
 
@@ -55,30 +56,40 @@ export default async function Home({ params }: { params: Params }) {
 
 
   return (
-    <div className={styles.page}>
-        <h1>{translations[locale].title}</h1>
-        <h2>{translations[locale].date},  
-          <a href="https://share.google/Sp0j5v2K5XXYI5L7k" target="_blank">
-            Hotel Parque do Rio, Ofir
-          </a>
-        </h2>
-        <div className={styles.body}>
-          <h3>{translations[locale].greetings} {salut()} </h3>
-          <p>{translations[locale].homepageText}</p>
-          <p>{translations[locale].homepageSubText}</p>
-          { availableToHotel &&  
-            <>
-              <p>{translations[locale].homepageHotel}</p>
-              <p>{translations[locale].homepageSubHotell}</p>
-            </> 
-          }
-          <p>{translations[locale].homepageConfirmation}:</p>
+    <>
+        <Image 
+          className={styles.landingImage}
+          src="/backgroundtest.png"
+          alt="Kuirius, pelo amor à comida"
+          layout="fill"
+          objectFit="cover"
+          objectPosition='left'
+        />
+        <div className={styles.page}>
+          <h1>{translations[locale].title}</h1>
+          <h2>{translations[locale].date},  
+            <a href="https://share.google/Sp0j5v2K5XXYI5L7k" target="_blank">
+              Hotel Parque do Rio, Ofir
+            </a>
+          </h2>
+          <div className={styles.body}>
+            <h3>{translations[locale].greetings} {salut()} </h3>
+            <p>{translations[locale].homepageText}</p>
+            <p>{translations[locale].homepageSubText}</p>
+            { availableToHotel &&  
+              <>
+                <p>{translations[locale].homepageHotel}</p>
+                <p>{translations[locale].homepageSubHotell}</p>
+              </> 
+            }
+            <p>{translations[locale].homepageConfirmation}:</p>
+            
+          </div>
+          <div className={styles.actions}>
+            <StartClientWrapper guests={guests} locale={locale}/>
+          </div>
           
-        </div>
-        <div className={styles.actions}>
-          <StartClientWrapper guests={guests} locale={locale}/>
-        </div>
-        
-    </div>
+      </div>
+    </>
   );
 }

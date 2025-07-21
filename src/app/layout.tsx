@@ -1,6 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import Image from "next/legacy/image";
-
 import "./styles/globals.scss";
 
 import { GuestProvider } from './context/GuestContext';
@@ -23,18 +21,12 @@ export default function RootLayout({
   return (
     <html lang="pt">
       <body>
-        <Image 
-            className={'.landingImage'}
-            src="/backgroundtest.png"
-            alt="Kuirius, pelo amor à comida"
-            layout="fill"
-            objectFit="cover"
-            objectPosition='left'
-
-          />
-        <GuestProvider>
-          {children}
-        </GuestProvider>
+        <div className={'layout_container'}>
+  
+          <GuestProvider>
+            {children}
+          </GuestProvider>
+        </div>
       </body>
     </html>
   );

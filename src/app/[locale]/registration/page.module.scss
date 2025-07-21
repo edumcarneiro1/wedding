@@ -9,6 +9,7 @@
   color: $secondaryStrong;
   background-color: $white;
   padding: $spacer-m;
+  margin: $spacer-m;
 
   @media (min-width: $breakPointTablet) {
     width: 80%;

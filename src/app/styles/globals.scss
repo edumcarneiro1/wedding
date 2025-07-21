@@ -3,21 +3,23 @@
 
 html,
 body {
-  width: 100vw;
-  height: 100vh;
-  overflow-x: hidden;
-  
+  padding: 0;
+  margin: 0;
+  font-family: $font-family;
 }
 
 body {
   font-family: $font-family;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: $spacer-m;
+}
+
+.layout_container {
   display: flex;
   justify-content: center;
-  background-color: $primary;
+  background-color: $background;
 }
+
 
 * {
   box-sizing: border-box;
@@ -28,8 +30,4 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-.landingImage {
-  z-index: 0;
 }
