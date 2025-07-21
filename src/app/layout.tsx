@@ -25,7 +25,7 @@ export default function RootLayout({
       <body>
         <Image 
             className={'.landingImage'}
-            src="/background.png"
+            src="/backgroundtest.png"
             alt="Kuirius, pelo amor à comida"
             layout="fill"
             objectFit="cover"
