@@ -12,13 +12,6 @@ import StartClientWrapper from "middlewares/StartClientWrapper";
 
 export const dynamic = 'force-dynamic';
 
-// type Props = {
-//   params: {
-//     token: string;
-//     locale: string;
-//   };
-// };
-
 type Params = Promise<{locale: string, token: string}>
 
 export default async function Home({ params }: { params: Params }) {

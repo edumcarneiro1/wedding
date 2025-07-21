@@ -9,6 +9,7 @@ type GuestContextType = {
   guests: Guest[] | null;
   locale: Locale;
   setGuests: (guests: Guest[]) => void;
+  setGuest: (guest: Guest) => void;
   setLocale: (locale: Locale) => void;
 };
 
@@ -18,8 +19,22 @@ export const GuestProvider = ({ children }: { children: ReactNode }) => {
   const [guests, setGuests] = useState<Guest[] | null>(null);
   const [locale, setLocale] = useState<Locale>('pt');
 
+  const setGuest = (guest: Guest) => {
+    setGuests(prevGuests => {
+      if (!prevGuests) return [guest];
+      const existingIndex = prevGuests.findIndex(g => g.id === guest.id);
+      if (existingIndex !== -1) {
+        const updated = [...prevGuests];
+        updated[existingIndex] = guest;
+        return updated;
+      } else {
+        return [...prevGuests, guest];
+      }
+    });
+  };
+
   return (
-    <GuestContext.Provider value={{ guests, setGuests, locale, setLocale }}>
+    <GuestContext.Provider value={{ guests, setGuests, setGuest, locale, setLocale }}>
       {children}
     </GuestContext.Provider>
   );

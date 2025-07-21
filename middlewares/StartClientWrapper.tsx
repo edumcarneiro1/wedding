@@ -5,6 +5,7 @@ import translations from '@lib/locales/translations.yaml';
 import { Guest } from "@lib/types";
 import Button from "@components/button";
 import { redirect } from 'next/navigation';
+import { setGuestsToLocalStorage } from '@lib/utils';
 
 type Props = {
   guests: Guest[];
@@ -16,6 +17,7 @@ const StartClientWrapper = ({ guests, locale }: Props) => {
   
   useEffect(() => {
     setGuests(guests);
+    setGuestsToLocalStorage(guests);
   }, [guests, setGuests]);
 
   useEffect(() => {

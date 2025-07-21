@@ -1,0 +1,12 @@
+@use "../../src/app/styles/variables" as *;
+
+.guest {
+    padding: $spacer-s 0;
+    width: 100%;
+
+    .formField {
+        margin: $spacer-s 0;
+        display: flex;
+        gap: $spacer-s;
+    }
+}

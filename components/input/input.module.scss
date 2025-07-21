@@ -1,0 +1,20 @@
+@use "../../src/app/styles/variables" as *;
+
+.container {
+    width: 100%;
+    font-size: $font-s;
+    font-weight: bold;
+
+    .input {
+        width: 100%;
+        height: $spacer-s + $spacer-m;
+        border-radius: $spacer-s;
+        border: 1px solid $black;
+        padding: $spacer-s;
+        font-family: $font-family, sans-serif;
+        font-size: $font-s;
+        font-weight: 300;
+        margin-top: $spacer-xs;
+    }    
+
+}

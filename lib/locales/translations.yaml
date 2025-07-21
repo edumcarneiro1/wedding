@@ -8,6 +8,10 @@ pt:
   homepageHotel: Gostariamos de contar com vocês não só na celebração como a passar uns dias connosco no hotel Parque de Ofir
   homepageConfirmation: Agora é hora da burocracia, precisamos de recolher alguns dados para confirmação até dia x de Julho
   startButton: Começar
+  name: Nome
+  surname: Apelido
+  restrictionsTitle: Restrições Alimentares
+  restrictionsPlaceholder: Inserir aqui as suas restrições alimentares
 en:
   title: Rita & Eduardo Wedding
   date: October 11
@@ -18,3 +22,7 @@ en:
   homepageHotel: We would like to invite you not just for the celebration day, but to stay with us over the weekend at hotel Parque de Ofir.
   homepageConfirmation: Now it's time for the bureaucracy, we need to get some data from you for the confirmation until X of July.
   startButton: Start
+  name: Name
+  surname: Surname
+  restrictionsTitle: Food Restrictions
+  restrictionsPlaceholder: Write here your food restrictions
