@@ -8,6 +8,7 @@ export interface Guest  {
     hotel: HotelType;
     status: Status | null;
     restrictions: string;
+    days: number;
 }
 
 enum Type {

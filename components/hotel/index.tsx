@@ -22,7 +22,7 @@ const Hotel: FunctionComponent<Props> = ({ id, name, checked, onChange }) => {
         <div className={styles.container}>
             <div className={styles.labels}>
                 <label>Hotel</label>
-                <p>Activa o switch para reservar o teu quarto no hotel</p>
+                <p>Desactiva o switch se não quiseres ficar connosco no hotel.</p>
             </div>
             <div className={styles.toggleContainer}>
                 <div className={styles["toggle-switch"]}>
