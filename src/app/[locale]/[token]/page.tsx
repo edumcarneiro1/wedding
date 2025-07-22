@@ -1,6 +1,6 @@
 import styles from "./page.module.scss";
 import { getGuests } from '@lib/api';
-import { Guest, Hotel } from '@lib/types';
+import { Guest, HotelType } from '@lib/types';
 import { JSX, } from "react";
 import { redirect } from 'next/navigation';
 import Image from "next/legacy/image";
@@ -52,7 +52,7 @@ export default async function Home({ params }: { params: Params }) {
     return elements;
   }
 
-  const availableToHotel : boolean = guests[0].hotel !== Hotel.NOT_AVAILABLE;
+  const availableToHotel : boolean = guests[0].hotel !== HotelType.NOT_AVAILABLE;
 
 
   return (

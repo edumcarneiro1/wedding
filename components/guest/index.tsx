@@ -5,6 +5,9 @@ import translations from '@lib/locales/translations.yaml';
 
 import Input from "@components/input";
 import Text from "@components/text";
+import Hotel from "@components/hotel";
+
+import { HotelType } from '@lib/types';
 
 import { useGuestContext } from "../../src/app/context/GuestContext"
 
@@ -41,6 +44,16 @@ const GuestCard: FunctionComponent<Props> = ({guest}) => {
         }
     };
 
+    const changeHotel = (hotel: boolean) => {
+        const guestUpdated = guest;
+        if (guestUpdated ) {
+            guestUpdated.hotel = hotel ? HotelType.YES : HotelType.NO;
+            setGuest(guestUpdated)
+        }
+    };
+
+    const availableToHotel : boolean = guest?.hotel !== HotelType.NOT_AVAILABLE;
+
     return(
         <div className={styles.guest}>
             <div className={styles.formField}>
@@ -66,6 +79,17 @@ const GuestCard: FunctionComponent<Props> = ({guest}) => {
                     label={translations[locale].restrictionsTitle}
                 />
             </div>
+            {
+                availableToHotel && 
+                <div className={styles.formField}>
+                    <Hotel 
+                        id={`'toggle-${guest?.id}'`} 
+                        checked={guest?.hotel === HotelType.YES || guest?.hotel === HotelType.NOT_CONFIRMED ? true : false} 
+                        onChange={changeHotel}
+                        name={`'toggle-${guest?.id}'`} 
+                    />
+                </div>
+            }
         </div>
     );
 };

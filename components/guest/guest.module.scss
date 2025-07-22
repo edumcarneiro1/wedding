@@ -3,6 +3,8 @@
 .guest {
     padding: $spacer-s 0;
     width: 100%;
+    border-bottom: 1px solid $secondary;
+    margin: $spacer-m 0;
 
     .formField {
         margin: $spacer-s 0;

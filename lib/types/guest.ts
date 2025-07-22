@@ -5,7 +5,7 @@ export interface Guest  {
     type: Type;
     presence: boolean | null;
     confirmed: boolean;
-    hotel: Hotel;
+    hotel: HotelType;
     status: Status | null;
     restrictions: string;
 }
@@ -15,7 +15,7 @@ enum Type {
     Kid
 }
 
-export enum Hotel {
+export enum HotelType {
     NOT_AVAILABLE,
     NOT_CONFIRMED,
     YES,
