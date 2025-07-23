@@ -1,0 +1,33 @@
+@use "../../src/app/styles/variables" as *;
+
+.dropdownContainer {
+    font-size: $font-s;
+    padding: $spacer-s 0;
+    font-family: $font-family, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    
+    label {
+        margin-right: $spacer-xs;
+        font-weight: bold;
+        margin-bottom: $spacer-xs;
+    }
+
+    select {
+        font-size: $font-s;
+        height: $spacer-s + $spacer-m;
+        border: 1px solid $secondary;
+        border-radius: $spacer-s;
+        background-color: transparent;
+        font-family: $font-family, sans-serif;
+        width: 100%;
+        font-weight: 300;
+        padding: 0 $spacer-s;
+
+        @media (min-width: $breakPointPhone) {
+            width: 50%;
+        }
+    }
+}

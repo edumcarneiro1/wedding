@@ -11,7 +11,7 @@ export interface Guest  {
     days: number;
 }
 
-enum Type {
+export enum Type {
     Adult,
     Kid
 }
