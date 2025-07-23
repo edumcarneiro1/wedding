@@ -18,6 +18,19 @@
   @media (min-width: $breakPointPC) {
     width: 50%;
   }
+
+  .actions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: $spacer-m;
+
+    @media (min-width: $breakPointPC) {
+      flex-direction: row;
+    }
+  }
 }
 
 

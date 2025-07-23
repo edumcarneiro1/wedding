@@ -2,6 +2,7 @@ import { FunctionComponent } from 'react'
 import styles from './guest.module.scss'
 import { Guest } from '@lib/types';
 import translations from '@lib/locales/translations.yaml';
+import classNames from 'classnames';
 
 import Input from "@components/input";
 import Text from "@components/text";
@@ -12,6 +13,7 @@ import { HotelType } from '@lib/types';
 
 import { useGuestContext } from "../../src/app/context/GuestContext"
 import Presence from '@components/presence';
+import GuestType from '@components/guestType';
 
 
 type Props = {
@@ -21,7 +23,7 @@ type Props = {
 
 
 const GuestCard: FunctionComponent<Props> = ({guest}) => {
-    const { setGuest, locale } = useGuestContext();
+    const { setGuest, locale, deleteGuestfromFamily } = useGuestContext();
     
     const changeName = (name: string) => {
         const guestUpdated = guest;
@@ -63,11 +65,22 @@ const GuestCard: FunctionComponent<Props> = ({guest}) => {
         }
     };
 
+    const changeType = (type: string) => {
+        const guestUpdated = guest;
+        if (guestUpdated ) {
+            guestUpdated.type = parseInt(type);
+            setGuest(guestUpdated)
+        }
+    };
+
+    const deleteGuest = () => {
+        if(guest) deleteGuestfromFamily(guest);
+    };
+
     const availableToHotel : boolean = guest?.hotel !== HotelType.NOT_AVAILABLE;
     const hotelValue : boolean = guest?.hotel === HotelType.YES || guest?.hotel === HotelType.NOT_CONFIRMED ? true : false;
     const presence_confirmed = !guest || guest?.presence === null ? true : guest?.presence;
-    
-
+    console.log(guest?.id === 0);
     return(
         <div className={styles.guest}>
             <div className={styles.formField}>
@@ -84,6 +97,17 @@ const GuestCard: FunctionComponent<Props> = ({guest}) => {
                     label={`${translations[locale].surname}*`}
                 />
             </div>
+            {
+                guest && guest.id === 0 && 
+                <div className={styles.formField}>
+                    <GuestType 
+                        guest={guest}
+                        locale={locale}
+                        changeGuestType={changeType}
+                    />
+                </div>
+            }
+
             <div className={styles.formField}>
                     <Presence 
                         id={`'presence-${guest?.id}'`} 
@@ -121,6 +145,12 @@ const GuestCard: FunctionComponent<Props> = ({guest}) => {
                presence_confirmed && hotelValue && 
                <div className={styles.formField}>
                  <HotelOptions guest={guest} />
+               </div>
+            }
+            {
+                guest && guest.id === 0 && 
+                <div className={classNames(styles.formField, styles.link)}>
+                 <a className={styles.delete} href="#" onClick={deleteGuest}>Delete Guest</a>
                </div>
             }
         </div>

@@ -9,6 +9,7 @@ export interface Guest  {
     status: Status | null;
     restrictions: string;
     days: number;
+    family_id: number;
 }
 
 export enum Type {

@@ -10,5 +10,16 @@
         margin: $spacer-s 0;
         display: flex;
         gap: $spacer-s;
+
+        &.link {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .delete {
+            color: $red;
+            font-weight: bold;
+            font-size: $font-s;
+            text-decoration: underline;
+        }
     }
 }

@@ -11,6 +11,8 @@ type GuestContextType = {
   setGuests: (guests: Guest[]) => void;
   setGuest: (guest: Guest) => void;
   setLocale: (locale: Locale) => void;
+  addGuestToFamily: (guest: Guest) => void;
+  deleteGuestfromFamily: (guest: Guest) => void;
 };
 
 const GuestContext = createContext<GuestContextType | undefined>(undefined);
@@ -33,8 +35,22 @@ export const GuestProvider = ({ children }: { children: ReactNode }) => {
     });
   };
 
+  const addGuestToFamily = (guest: Guest) => {
+    setGuests(prevGuests => {
+      if (!prevGuests) return [guest];
+      return [...prevGuests, guest];
+    })
+  };
+
+  const deleteGuestfromFamily = (guest: Guest) => {
+    setGuests(prevGuests => {
+      if (!prevGuests) return null;
+      return prevGuests.filter(g => g.id !== guest.id);
+    });
+  };
+
   return (
-    <GuestContext.Provider value={{ guests, setGuests, setGuest, locale, setLocale }}>
+    <GuestContext.Provider value={{ guests, setGuests, setGuest, locale, setLocale, addGuestToFamily, deleteGuestfromFamily }}>
       {children}
     </GuestContext.Provider>
   );
