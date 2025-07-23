@@ -90,6 +90,7 @@ const GuestCard: FunctionComponent<Props> = ({guest}) => {
                         checked={hotelValue} 
                         onChange={changeHotel}
                         name={`'toggle-${guest?.id}'`} 
+                        locale={locale}
                     />
                 </div>
             }

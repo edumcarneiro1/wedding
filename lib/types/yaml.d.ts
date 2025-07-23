@@ -15,6 +15,13 @@ declare module '*.yaml' {
       surname: string;
       restrictionsTitle: string;
       restrictionsPlaceholder: string;
+      hotelDescription: string;
+      hotelSubText: string;
+      hotelNightsTitle: string;
+      hotelOneNightAdult: string;
+      hotelOneNightKids: string;
+      hotelTwoNightsAdult: string;
+      hotelTwoNightsKids: string;
   }
   const value: {
     pt: translation;

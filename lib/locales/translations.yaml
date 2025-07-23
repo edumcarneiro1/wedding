@@ -14,6 +14,13 @@ pt:
   surname: Apelido
   restrictionsTitle: Restrições Alimentares
   restrictionsPlaceholder: Inserir aqui as suas restrições alimentares
+  hotelSubText: Desactiva o switch se não quiseres ficar connosco no hotel.
+  hotelDescription: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+  hotelNightsTitle: Noites
+  hotelOneNightAdult: 1 noite (Sabado) - 50€ por adulto
+  hotelOneNightKids: 1 noite (Sabado) - 0€ por criança
+  hotelTwoNightsAdult: 2 noites (Sexta e Sabado) - 100€ por adulto
+  hotelTwoNightsKids: 2 noites (Sexta e Sabado) - 100€ por criança
 en:
   title: Rita & Eduardo Wedding
   date: October 11
@@ -30,7 +37,13 @@ en:
   surname: Surname
   restrictionsTitle: Food Restrictions
   restrictionsPlaceholder: Write here your food restrictions
-
+  hotelSubText: Turn off the switch if you dont want to stay with us at the hotel.
+  hotelDescription: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+  hotelNightsTitle: Nights
+  hotelOneNightAdult: 1 night (Saturday) - 50€ per adult
+  hotelOneNightKids: 1 night (Saturday) - 0€ por kid
+  hotelTwoNightsAdult: 2 nights (Frida and Saturday) - 100€ por pessoa
+  hotelTwoNightsKids: 2 nights (Frida and Saturday) - 0€ per kid
 
 
 

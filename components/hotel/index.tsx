@@ -1,5 +1,6 @@
 import { FunctionComponent, KeyboardEvent } from 'react'
 import styles from "./toggle.module.scss";
+import translations from '@lib/locales/translations.yaml';
 
 
 type Props = {
@@ -7,9 +8,10 @@ type Props = {
     checked: boolean;
     onChange: (checked: boolean) => void;
     name: string;
+    locale: 'pt' | 'en';
 };
 
-const Hotel: FunctionComponent<Props> = ({ id, name, checked, onChange }) => {
+const Hotel: FunctionComponent<Props> = ({ id, name, checked, onChange, locale }) => {
 
     const handleKeyPress = (e: KeyboardEvent<HTMLLabelElement>) => {
         if (e.keyCode !== 32) return;
@@ -22,7 +24,7 @@ const Hotel: FunctionComponent<Props> = ({ id, name, checked, onChange }) => {
         <div className={styles.container}>
             <div className={styles.labels}>
                 <label>Hotel</label>
-                <p>Desactiva o switch se não quiseres ficar connosco no hotel.</p>
+                <p>{translations[locale].hotelSubText}</p>
             </div>
             <div className={styles.toggleContainer}>
                 <div className={styles["toggle-switch"]}>
