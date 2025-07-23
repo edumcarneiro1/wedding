@@ -21,6 +21,8 @@ pt:
   hotelOneNightKids: 1 noite (Sabado) - 0€ por criança
   hotelTwoNightsAdult: 2 noites (Sexta e Sabado) - 100€ por adulto
   hotelTwoNightsKids: 2 noites (Sexta e Sabado) - 100€ por criança
+  presenceTitle: Confirmar presença no casamento
+  presenceDescription: Desactivar toogle se não vai estar presente no nosso casamento
 en:
   title: Rita & Eduardo Wedding
   date: October 11
@@ -44,6 +46,8 @@ en:
   hotelOneNightKids: 1 night (Saturday) - 0€ por kid
   hotelTwoNightsAdult: 2 nights (Frida and Saturday) - 100€ por pessoa
   hotelTwoNightsKids: 2 nights (Frida and Saturday) - 0€ per kid
+  presenceTitle: Confirm wedding presence
+  presenceDescription: Turn off the toggle if you cant attend our wedding
 
 
 

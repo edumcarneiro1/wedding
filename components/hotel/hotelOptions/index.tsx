@@ -24,7 +24,7 @@ const HotelOptions: FunctionComponent<Props> = ({guest}) => {
 
     const values = [
         {value: 1, name: guest?.type !== Type.Kid ? translations[locale].hotelOneNightAdult :  translations[locale].hotelOneNightKids},
-        {value: 3, name: guest?.type !== Type.Kid ? translations[locale].hotelTwoNightsAdult :  translations[locale].hotelTwoNightsKids},
+        {value: 2, name: guest?.type !== Type.Kid ? translations[locale].hotelTwoNightsAdult :  translations[locale].hotelTwoNightsKids},
     ]
     return  (
         <div className={styles.container}>

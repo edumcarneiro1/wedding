@@ -11,6 +11,7 @@ import HotelOptions from '@components/hotel/hotelOptions';
 import { HotelType } from '@lib/types';
 
 import { useGuestContext } from "../../src/app/context/GuestContext"
+import Presence from '@components/presence';
 
 
 type Props = {
@@ -54,8 +55,18 @@ const GuestCard: FunctionComponent<Props> = ({guest}) => {
         }
     };
 
+    const changePresence = (presence: boolean) => {
+        const guestUpdated = guest;
+        if (guestUpdated ) {
+            guestUpdated.presence = presence;
+            setGuest(guestUpdated)
+        }
+    };
+
     const availableToHotel : boolean = guest?.hotel !== HotelType.NOT_AVAILABLE;
     const hotelValue : boolean = guest?.hotel === HotelType.YES || guest?.hotel === HotelType.NOT_CONFIRMED ? true : false;
+    const presence_confirmed = !guest || guest?.presence === null ? true : guest?.presence;
+    
 
     return(
         <div className={styles.guest}>
@@ -74,16 +85,28 @@ const GuestCard: FunctionComponent<Props> = ({guest}) => {
                 />
             </div>
             <div className={styles.formField}>
-                <Text 
-                    id={`'restrictions-text-${guest?.id}'`}
-                    onChange={changeRestrictions}
-                    value={guest?.restrictions}
-                    placeHolder={translations[locale].restrictionsPlaceholder}
-                    label={translations[locale].restrictionsTitle}
-                />
-            </div>
+                    <Presence 
+                        id={`'presence-${guest?.id}'`} 
+                        checked={presence_confirmed} 
+                        onChange={changePresence}
+                        name={`'presence-${guest?.id}'`} 
+                        locale={locale}
+                    />
+                </div>
             {
-                availableToHotel && 
+                presence_confirmed && 
+                <div className={styles.formField}>
+                    <Text 
+                        id={`'restrictions-text-${guest?.id}'`}
+                        onChange={changeRestrictions}
+                        value={guest?.restrictions}
+                        placeHolder={translations[locale].restrictionsPlaceholder}
+                        label={translations[locale].restrictionsTitle}
+                    />
+                </div>
+            }
+            {
+                presence_confirmed && availableToHotel && 
                 <div className={styles.formField}>
                     <Hotel 
                         id={`'toggle-${guest?.id}'`} 
@@ -95,7 +118,7 @@ const GuestCard: FunctionComponent<Props> = ({guest}) => {
                 </div>
             }
             {
-               hotelValue && 
+               presence_confirmed && hotelValue && 
                <div className={styles.formField}>
                  <HotelOptions guest={guest} />
                </div>
