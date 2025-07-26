@@ -1,18 +1,20 @@
 'use client';
+import { JSX, useEffect, useState } from "react";
+import { useParams } from 'next/navigation';
+
 import styles from "./page.module.scss";
 import { useGuestContext } from "../../context/GuestContext";
-
-
-import { JSX, useEffect, useState } from "react";
-import GuestCard from "@components/guest";
 import { getGuestsFromLocalStorage } from "@lib/utils";
-import { useParams } from 'next/navigation'
+
+import GuestCard from "@components/guest";
 import Button from "@components/button";
+import ErrorTab from "@components/errorTab";
 
 export default function Registration() {
   const {  guests, setGuests, setLocale, locale, addGuestToFamily } = useGuestContext();
   const params = useParams<{ locale: string }>();
   const [added, setAdded] = useState(0);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     if (!guests) {
@@ -61,13 +63,31 @@ export default function Registration() {
 
   const submit = () : void => {
     console.log('guests', guests);
+    // post guests
+
+    //deal with error
+
+    // redirect to the payment page
+  }
+
+  const focus = (): void => {
+    if(error !== "") {
+      setError("");
+    }
   }
 
   //if guests added > 99 throw an error
 
   return (
     <div className={styles.page}>
-      <form action={submit}>
+      {
+        error !== "" && 
+        <ErrorTab>{error}</ErrorTab>
+      }
+      <form 
+        onSubmit={submit}
+        onFocus={focus}
+      >
         {guestsElements()}
         <div className={styles.actions}>
           <Button

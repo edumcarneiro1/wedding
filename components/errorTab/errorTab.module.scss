@@ -1,0 +1,10 @@
+@use "../../src/app/styles/variables" as *;
+
+.error {
+    padding: $spacer-s;
+    background-color: $red;
+    color: $white;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}
