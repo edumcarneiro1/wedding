@@ -67,21 +67,23 @@ export default function Registration() {
 
   return (
     <div className={styles.page}>
-      {guestsElements()}
-      <div className={styles.actions}>
-        <Button
-          onClick={addGuest}
-          primary={false}
-        >
-          Add new guest
-        </Button>
-        <Button
-            onClick={submit}
-            primary={true}
+      <form action={submit}>
+        {guestsElements()}
+        <div className={styles.actions}>
+          <Button
+            onClick={addGuest}
+            primary={false}
           >
-            Submit
-        </Button>
-      </div>
+            Add new guest
+          </Button>
+          <Button
+              primary={true}
+              type={'submit'}
+            >
+              Submit
+          </Button>
+        </div>
+      </form>
     </div>
   );
 }

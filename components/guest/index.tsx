@@ -90,12 +90,14 @@ const GuestCard: FunctionComponent<Props> = ({guest}) => {
                     onChange={changeName}
                     value={`${guest?.name}`}
                     label={`${translations[locale].name}*`}
+                    required={true}
                 />
                  <Input
                     id={`surname-input${guest?.id}`}
                     onChange={changeSurname}
                     value={`${guest?.surname}`}
                     label={`${translations[locale].surname}*`}
+                    required={true}
                 />
             </div>
             {

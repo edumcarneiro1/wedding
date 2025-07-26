@@ -9,9 +9,10 @@ type Props = {
     id: string;
     className?: string;
     label?: string;
+    required?: boolean;
 }
 
-const Input: FunctionComponent<Props> = ({id,label, placeHolder, value, onChange, className}) => {
+const Input: FunctionComponent<Props> = ({id,label, placeHolder, value, onChange, className, required}) => {
     return(
         <div className={styles.container}>
             <label htmlFor={id}>{label}</label>
@@ -22,6 +23,7 @@ const Input: FunctionComponent<Props> = ({id,label, placeHolder, value, onChange
                 className={classNames(styles.input, className)}  
                 onChange={(e) => onChange(e.target.value)}
                 value={value}
+                required={required}
             />
         </div>
     );
