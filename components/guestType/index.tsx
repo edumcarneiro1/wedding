@@ -4,7 +4,7 @@ import styles from './guestType.module.scss';
 
 import { Guest, Type } from '@lib/types';
 import SimpleDropdown from '@components/simpleDropdown';
-import translations from '@lib/locales/translations.yaml';
+
 
 type Props = {
     locale: string;
@@ -13,7 +13,7 @@ type Props = {
 };
 
 
-const GuestType: FunctionComponent<Props> = ({locale, guest, changeGuestType, }) => {
+const GuestType: FunctionComponent<Props> = ({guest, changeGuestType }) => {
 
     const values = [
         {value: Type.Adult, name: 'Adult'},

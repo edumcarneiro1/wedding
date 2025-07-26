@@ -80,7 +80,8 @@ const GuestCard: FunctionComponent<Props> = ({guest}) => {
     const availableToHotel : boolean = guest?.hotel !== HotelType.NOT_AVAILABLE;
     const hotelValue : boolean = guest?.hotel === HotelType.YES || guest?.hotel === HotelType.NOT_CONFIRMED ? true : false;
     const presence_confirmed = !guest || guest?.presence === null ? true : guest?.presence;
-    console.log(guest?.id === 0);
+    const guestAdded = guest?.id && guest.id > 900;
+    
     return(
         <div className={styles.guest}>
             <div className={styles.formField}>
@@ -148,7 +149,7 @@ const GuestCard: FunctionComponent<Props> = ({guest}) => {
                </div>
             }
             {
-                guest && guest.id === 0 && 
+                guestAdded &&
                 <div className={classNames(styles.formField, styles.link)}>
                  <a className={styles.delete} href="#" onClick={deleteGuest}>Delete Guest</a>
                </div>

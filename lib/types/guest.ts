@@ -1,5 +1,5 @@
 export interface Guest  {
-    id: number;
+    id?: number;
     name: string;
     surname: string;
     type: Type;
@@ -8,7 +8,7 @@ export interface Guest  {
     hotel: HotelType;
     status: Status | null;
     restrictions: string;
-    days: number;
+    days: number | null;
     family_id: number;
 }
 

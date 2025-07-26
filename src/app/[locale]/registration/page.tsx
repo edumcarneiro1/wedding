@@ -3,7 +3,7 @@ import styles from "./page.module.scss";
 import { useGuestContext } from "../../context/GuestContext";
 
 
-import { JSX, useEffect } from "react";
+import { JSX, useEffect, useState } from "react";
 import GuestCard from "@components/guest";
 import { getGuestsFromLocalStorage } from "@lib/utils";
 import { useParams } from 'next/navigation'
@@ -12,6 +12,7 @@ import Button from "@components/button";
 export default function Registration() {
   const {  guests, setGuests, setLocale, locale, addGuestToFamily } = useGuestContext();
   const params = useParams<{ locale: string }>();
+  const [added, setAdded] = useState(0);
 
   useEffect(() => {
     if (!guests) {
@@ -41,7 +42,7 @@ export default function Registration() {
   const addGuest = () : void => {
     if (guests) {
       const newGuest = {
-        id: 0,
+        id: guests.length + 1 + 900 ,
         name: '',
         surname: '',
         type: 0,
@@ -53,12 +54,16 @@ export default function Registration() {
         days: 0, 
         family_id: guests[0].hotel
       };
-      console.log(newGuest);
       addGuestToFamily(newGuest);
+      setAdded(added + 1);
     } 
   }
 
-  console.log('gueeests', guests);
+  const submit = () : void => {
+    console.log('guests', guests);
+  }
+
+  //if guests added > 99 throw an error
 
   return (
     <div className={styles.page}>
@@ -71,7 +76,7 @@ export default function Registration() {
           Add new guest
         </Button>
         <Button
-            onClick={()=>{}}
+            onClick={submit}
             primary={true}
           >
             Submit
