@@ -12,9 +12,13 @@
         border: 1px solid $secondary;
         padding: $spacer-s;
         font-family: $font-family, sans-serif;
-        font-size: $font-s;
+        font-size: $font-sm;
         font-weight: 300;
         margin-top: $spacer-xs;
+
+        @media (min-width: $breakPointTablet) {
+            font-size: $font-s;
+        }
     }    
 
 }
