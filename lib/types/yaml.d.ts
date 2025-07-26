@@ -24,6 +24,8 @@ declare module '*.yaml' {
       hotelTwoNightsKids: string;
       presenceTitle: string;
       presenceDescription: string;
+      genericError: string;
+      guestLimit: string;
   }
   const value: {
     pt: translation;

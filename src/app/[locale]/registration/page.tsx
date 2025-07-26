@@ -1,5 +1,5 @@
 'use client';
-import { JSX, useEffect, useState } from "react";
+import { JSX, useEffect, useState, useRef } from "react";
 import { useParams } from 'next/navigation';
 
 import styles from "./page.module.scss";
@@ -9,12 +9,20 @@ import { getGuestsFromLocalStorage } from "@lib/utils";
 import GuestCard from "@components/guest";
 import Button from "@components/button";
 import ErrorTab from "@components/errorTab";
+import { PostGuests } from "@lib/api";
+
+import translations from '@lib/locales/translations.yaml';
 
 export default function Registration() {
   const {  guests, setGuests, setLocale, locale, addGuestToFamily } = useGuestContext();
   const params = useParams<{ locale: string }>();
   const [added, setAdded] = useState(0);
   const [error, setError] = useState("");
+
+  const errorRef = useRef<HTMLDivElement>(null);
+  const guestRefs = useRef<Record<number, HTMLDivElement | null>>({});
+  const [lastAddedGuestId, setLastAddedGuestId] = useState<number | null>(null);
+
 
   useEffect(() => {
     if (!guests) {
@@ -29,13 +37,37 @@ export default function Registration() {
       setLocale(paramLocale);
     }
   }, [params, locale, setLocale]);
+
+  useEffect(() => {
+    if (error && errorRef.current) {
+      errorRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, [error]);
+
+  useEffect(() => {
+    if (added === 5) {
+      setError(translations[locale].guestLimt);
+    }
+  }, [added, locale]);
+
+  useEffect(() => {
+    if (lastAddedGuestId && guestRefs.current[lastAddedGuestId]) {
+      guestRefs.current[lastAddedGuestId]?.scrollIntoView({ behavior: "smooth", block: "center" });
+      setLastAddedGuestId(null);
+    }
+  }, [lastAddedGuestId, guests]);
   
 
   const guestsElements = (): JSX.Element[] => {
     const elements: JSX.Element[] = [];
     guests?.forEach((guest, index) => {
+      const id = guest.id ? guest.id : 0; 
       elements.push(
-        <GuestCard guest={guest} key={index} />
+        <GuestCard 
+          ref={el => { guestRefs.current[id] = el; }}
+          guest={guest}
+          key={index} 
+        />
       )
     });
     return elements;
@@ -61,13 +93,15 @@ export default function Registration() {
     } 
   }
 
-  const submit = () : void => {
-    console.log('guests', guests);
-    // post guests
+  const submit = async (event: React.FormEvent<HTMLFormElement>) : Promise<void> => {
+    event.preventDefault();
+    const response = await PostGuests(guests || []);
 
-    //deal with error
+    if (response.success) {
 
-    // redirect to the payment page
+    } else {
+      setError(translations[locale].genericError);
+    }
   }
 
   const focus = (): void => {
@@ -76,26 +110,28 @@ export default function Registration() {
     }
   }
 
-  //if guests added > 99 throw an error
-
   return (
     <div className={styles.page}>
       {
         error !== "" && 
-        <ErrorTab>{error}</ErrorTab>
+        <ErrorTab ref={errorRef}>{error}</ErrorTab>
       }
       <form 
+        className={styles.form}
         onSubmit={submit}
         onFocus={focus}
       >
         {guestsElements()}
         <div className={styles.actions}>
-          <Button
-            onClick={addGuest}
-            primary={false}
-          >
-            Add new guest
-          </Button>
+          {
+            added < 5 &&
+            <Button
+              onClick={addGuest}
+              primary={false}
+            >
+              Add new guest
+            </Button>
+          }
           <Button
               primary={true}
               type={'submit'}

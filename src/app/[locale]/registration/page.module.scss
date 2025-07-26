@@ -9,7 +9,10 @@
   color: $secondaryStrong;
   background-color: $white;
   padding: $spacer-m;
-
+  
+  .form {
+    width: 100%;
+  }
   @media (min-width: $breakPointTablet) {
     width: 80%;
   }

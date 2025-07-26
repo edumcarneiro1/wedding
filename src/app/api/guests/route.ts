@@ -3,64 +3,51 @@ import { Guest, HotelType } from '@lib/types';
 
 export async function POST(req: Request) {
   try {
-    const data = await req.json() ;
+    const data = await req.json();
     const guests: Guest[] = data.guests;
- 
-    if ( guests && !Array.isArray(guests)) {
-      return new Response(JSON.stringify({ error: "Not the correct body format" }), {
-        status: 400,
-        headers: { "Content-Type": "application/json" },
-      });
+
+    if (!Array.isArray(guests)) {
+      return Response.json({ success: false, error: "Not the correct body format" }, { status: 400 });
     }
 
-    guests.forEach(async guest => {
-        guest.presence =  guest.presence === null ? true : guest.presence;
-        guest.confirmed = true;
-        guest.days = 
-                guest.hotel === HotelType.NOT_AVAILABLE || 
-                guest.hotel === HotelType.NO ? 
-                null : 
-                guest.days;
-        guest.hotel = guest.hotel === HotelType.NOT_CONFIRMED ? HotelType.YES : guest.hotel;
+    // Collect errors 
+    const errors: string[] = [];
 
-      if (guest?.id && guest.id <= 900) {
+    for (const guest of guests) {
+      guest.presence = guest.presence === null ? true : guest.presence;
+      guest.confirmed = true;
+      guest.days =
+        guest.hotel === HotelType.NOT_AVAILABLE ||
+        guest.hotel === HotelType.NO
+          ? null
+          : guest.days;
+      guest.hotel = guest.hotel === HotelType.NOT_CONFIRMED ? HotelType.YES : guest.hotel;
+
+      if (guest.id && guest.id <= 900) {
         const { error } = await supabaseServer
-                .from('guests')
-                .update(guest)
-                .eq('id', guest.id); 
+          .from('guests')
+          .update(guest)
+          .eq('id', guest.id);
         if (error) {
-          return new Response(JSON.stringify({ error: error.message }), {
-                status: 500,
-            });
+          errors.push(error.message);
         }
       } else {
         delete guest.id;
         const { error } = await supabaseServer
-                    .from('guests')
-                    .insert([guest]);
-        
+          .from('guests')
+          .insert([guest]);
         if (error) {
-          return new Response(JSON.stringify({ error: error.message }), {
-                status: 500,
-            });
+          errors.push(error.message);
         }
       }
-        
-        
-        // Add guest if ID === 0;
-    })
+    }
 
-    //
-    // Optionally, do something with guests here (e.g., save to database)
+    if (errors.length > 0) {
+      return Response.json({ success: false, error: errors.join(", ") }, { status: 500 });
+    }
 
-    return new Response(JSON.stringify({ success: true }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    });
+    return Response.json({ success: true }, { status: 200 });
   } catch (error) {
-    return new Response(JSON.stringify({ error: (error as Error).message }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
+    return Response.json({ success: false, error: (error as Error).message }, { status: 500 });
   }
 }

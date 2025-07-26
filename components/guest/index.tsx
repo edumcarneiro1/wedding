@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react'
+import { forwardRef } from 'react'
 import styles from './guest.module.scss'
 import { Guest } from '@lib/types';
 import translations from '@lib/locales/translations.yaml';
@@ -22,7 +22,7 @@ type Props = {
 
 
 
-const GuestCard: FunctionComponent<Props> = ({guest}) => {
+const GuestCard =  forwardRef<HTMLDivElement, Props>(({ guest }, ref) => {
     const { setGuest, locale, deleteGuestfromFamily } = useGuestContext();
     
     const changeName = (name: string) => {
@@ -73,7 +73,8 @@ const GuestCard: FunctionComponent<Props> = ({guest}) => {
         }
     };
 
-    const deleteGuest = () => {
+    const deleteGuest = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
         if(guest) deleteGuestfromFamily(guest);
     };
 
@@ -83,7 +84,7 @@ const GuestCard: FunctionComponent<Props> = ({guest}) => {
     const guestAdded = guest?.id && guest.id > 900;
     
     return(
-        <div className={styles.guest}>
+        <div ref={ref} className={styles.guest}>
             <div className={styles.formField}>
                 <Input
                     id={`name-input${guest?.id}`}
@@ -158,6 +159,8 @@ const GuestCard: FunctionComponent<Props> = ({guest}) => {
             }
         </div>
     );
-};
+});
+
+GuestCard.displayName = "GuestCard";
 
 export default GuestCard;

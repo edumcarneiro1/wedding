@@ -14,3 +14,31 @@ export const getGuests  = async (token: string): Promise<Guest[]> => {
     const guests: Guest[] = await res.json();
     return guests;
 };
+
+
+export const PostGuests = async (guests: Guest[]): Promise<{ success: boolean; error?: string }> => {
+  try {
+    const res = await fetch(`${baseUrl}/api/guests`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ guests })
+    });
+
+    const data = await res.json();
+
+    if (!res.ok || !data.success) {
+      return {
+        success: false,
+        error: data.error || "Unknown error"
+      };
+    }
+
+    return { success: true };
+  } catch (err) {
+    let message = "Network error";
+    if (err instanceof Error) {
+        message = err.message;
+    }
+    return { success: false, error: message || "Network error" };
+  }
+};
