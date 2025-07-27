@@ -20,11 +20,23 @@ pt:
   hotelOneNightAdult: 1 noite (Sabado) - 50€ por adulto
   hotelOneNightKids: 1 noite (Sabado) - 0€ por criança
   hotelTwoNightsAdult: 2 noites (Sexta e Sabado) - 100€ por adulto
-  hotelTwoNightsKids: 2 noites (Sexta e Sabado) - 100€ por criança
+  hotelTwoNightsKids: 2 noites (Sexta e Sabado) - 0€ por criança
   presenceTitle: Confirmar presença no casamento
   presenceDescription: Desactivar toogle se não vai estar presente no nosso casamento
   genericError: Algo correu mal, tente novamente! Caso o problema continue, entre em contacto com o Eduardo ou a Rita.
   guestLimit: Atingiu o máximo de convidados. Entre em contacto com o Eduardo ou a Rita.
+  confirmationHotelTitle: Pagamento do Hotel
+  confirmationTitle: Confirmação Recebida
+  confirmationSubTitle: Muito obrigado pela vossa confirmação! Estamos muito felizes em contar convosco
+  confirmationGetinTouch: Qualquer dúvida, entre em contacto connosco.
+  confirmationHotelDescription: O próximo passo será, assim que possível,  fazer o pagamento das vossas noites no hotel
+  confirmationTotalValue: Valor a pagar
+  confirmationPaymentMethods: Métodos de pagamento
+  confirmationBankTransfer: Transferência Bancária
+  confirmationPaymentNote: Por favor indiquem uma nota com o vosso nome ao fazer o pagamento para que assim possámos identificar.
+  confirmationNextSteps: Em breve irão receber mais informações, se tiverem alguma alteração a fazer por favor entrem em contacto connosco.
+  addNewGuest: Adicionar um convidado
+  deleteGuest: Apagar convidado
 en:
   title: Rita & Eduardo Wedding
   date: October 11
@@ -52,6 +64,18 @@ en:
   presenceDescription: Turn off the toggle if you cant attend our wedding
   genericError: Something went wrong, please try again! If the problem persists, get in touch with Eduardo ou Rita.
   guestLimit: You've reached the maximum guests. Please get in touch with Eduardo ou Rita.
+  confirmationHotelTitle: Hotel Payment
+  confirmationTitle: Confirmation Received
+  confirmationSubTitle: Thank you for you confirmation! We're very happy to have you with us.
+  confirmationGetinTouch: Any doubt, please get in touch with us.
+  confirmationHotelDescription: Next step should be to pay the hotel nights as soon as possible
+  confirmationTotalValue: Total
+  confirmationPaymentMethods: Payment Methods
+  confirmationBankTransfer: Bank Transfer
+  confirmationPaymentNote: Please add a payment note with your name so that we can identify and confirm the recipient. 
+  confirmationNextSteps: Stay tunned, soon you'll receive more information. If you need to change anything, please get in touch with us.
+  addNewGuest: Add a new guest
+  deleteGuest: Delete Guest
 
 
 

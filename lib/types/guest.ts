@@ -3,12 +3,12 @@ export interface Guest  {
     name: string;
     surname: string;
     type: Type;
-    presence: boolean | null;
+    presence: boolean;
     confirmed: boolean;
     hotel: HotelType;
     status: Status | null;
     restrictions: string;
-    days: number | null;
+    days: number;
     family_id: number;
 }
 

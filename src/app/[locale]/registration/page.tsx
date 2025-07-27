@@ -1,10 +1,10 @@
 'use client';
 import { JSX, useEffect, useState, useRef } from "react";
-import { useParams } from 'next/navigation';
+import { redirect, useParams } from 'next/navigation';
 
 import styles from "./page.module.scss";
 import { useGuestContext } from "../../context/GuestContext";
-import { getGuestsFromLocalStorage } from "@lib/utils";
+import { getGuestsFromLocalStorage, setGuestsToLocalStorage } from "@lib/utils";
 
 import GuestCard from "@components/guest";
 import Button from "@components/button";
@@ -56,6 +56,12 @@ export default function Registration() {
       setLastAddedGuestId(null);
     }
   }, [lastAddedGuestId, guests]);
+
+
+  if (guests && guests.filter(guest => !guest.confirmed).length === 0) {
+      setGuestsToLocalStorage(guests);
+      redirect(`/${locale}/confirmation`);
+  }
   
 
   const guestsElements = (): JSX.Element[] => {
@@ -85,8 +91,8 @@ export default function Registration() {
         hotel: guests[0].hotel,
         status: 1,
         restrictions: '',
-        days: 0, 
-        family_id: guests[0].hotel
+        days: 1, 
+        family_id: guests[0].family_id
       };
       addGuestToFamily(newGuest);
       setAdded(added + 1);
@@ -94,14 +100,21 @@ export default function Registration() {
   }
 
   const submit = async (event: React.FormEvent<HTMLFormElement>) : Promise<void> => {
-    event.preventDefault();
-    const response = await PostGuests(guests || []);
-
-    if (response.success) {
-
-    } else {
-      setError(translations[locale].genericError);
-    }
+    event.preventDefault(); 
+    if (guests) {
+        setGuestsToLocalStorage(guests);
+      }
+      redirect(`/${locale}/confirmation`);
+    // const response = await PostGuests(guests || []);
+  
+    // if (response.success) {
+    //   if (guests) {
+    //     setGuestsToLocalStorage(guests);
+    //   }
+    //   redirect(`/${locale}/confirmation`);
+    // } else {
+    //   setError(translations[locale].genericError);
+    // }
   }
 
   const focus = (): void => {
@@ -129,7 +142,7 @@ export default function Registration() {
               onClick={addGuest}
               primary={false}
             >
-              Add new guest
+              {translations[locale].addNewGuest}
             </Button>
           }
           <Button

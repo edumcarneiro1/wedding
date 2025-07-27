@@ -23,7 +23,10 @@ type Props = {
 
 
 const GuestCard =  forwardRef<HTMLDivElement, Props>(({ guest }, ref) => {
+
     const { setGuest, locale, deleteGuestfromFamily } = useGuestContext();
+    
+    if (!guest) return;
     
     const changeName = (name: string) => {
         const guestUpdated = guest;
@@ -78,31 +81,30 @@ const GuestCard =  forwardRef<HTMLDivElement, Props>(({ guest }, ref) => {
         if(guest) deleteGuestfromFamily(guest);
     };
 
-    const availableToHotel : boolean = guest?.hotel !== HotelType.NOT_AVAILABLE;
-    const hotelValue : boolean = guest?.hotel === HotelType.YES || guest?.hotel === HotelType.NOT_CONFIRMED ? true : false;
-    const presence_confirmed = !guest || guest?.presence === null ? true : guest?.presence;
-    const guestAdded = guest?.id && guest.id > 900;
+    const availableToHotel : boolean = guest.hotel !== HotelType.NOT_AVAILABLE;
+    const hotelValue : boolean = guest.hotel === HotelType.YES || guest.hotel === HotelType.NOT_CONFIRMED ? true : false;
+    const guestAdded = guest.id && guest.id > 900;
     
     return(
         <div ref={ref} className={styles.guest}>
             <div className={styles.formField}>
                 <Input
-                    id={`name-input${guest?.id}`}
+                    id={`name-input${guest.id}`}
                     onChange={changeName}
-                    value={`${guest?.name}`}
+                    value={`${guest.name}`}
                     label={`${translations[locale].name}*`}
                     required={true}
                 />
                  <Input
-                    id={`surname-input${guest?.id}`}
+                    id={`surname-input${guest.id}`}
                     onChange={changeSurname}
-                    value={`${guest?.surname}`}
+                    value={`${guest.surname}`}
                     label={`${translations[locale].surname}*`}
                     required={true}
                 />
             </div>
             {
-                guest && guest.id === 0 && 
+                guest.id && guest.id >= 900 && 
                 <div className={styles.formField}>
                     <GuestType 
                         guest={guest}
@@ -114,39 +116,39 @@ const GuestCard =  forwardRef<HTMLDivElement, Props>(({ guest }, ref) => {
 
             <div className={styles.formField}>
                     <Presence 
-                        id={`'presence-${guest?.id}'`} 
-                        checked={presence_confirmed} 
+                        id={`'presence-${guest.id}'`} 
+                        checked={guest.presence} 
                         onChange={changePresence}
-                        name={`'presence-${guest?.id}'`} 
+                        name={`'presence-${guest.id}'`} 
                         locale={locale}
                     />
                 </div>
             {
-                presence_confirmed && 
+                guest.presence && 
                 <div className={styles.formField}>
                     <Text 
-                        id={`'restrictions-text-${guest?.id}'`}
+                        id={`'restrictions-text-${guest.id}'`}
                         onChange={changeRestrictions}
-                        value={guest?.restrictions}
+                        value={guest.restrictions}
                         placeHolder={translations[locale].restrictionsPlaceholder}
                         label={translations[locale].restrictionsTitle}
                     />
                 </div>
             }
             {
-                presence_confirmed && availableToHotel && 
+                guest.presence && availableToHotel && 
                 <div className={styles.formField}>
                     <Hotel 
-                        id={`'toggle-${guest?.id}'`} 
+                        id={`'toggle-${guest.id}'`} 
                         checked={hotelValue} 
                         onChange={changeHotel}
-                        name={`'toggle-${guest?.id}'`} 
+                        name={`'toggle-${guest.id}'`} 
                         locale={locale}
                     />
                 </div>
             }
             {
-               presence_confirmed && hotelValue && 
+               guest.presence && hotelValue && 
                <div className={styles.formField}>
                  <HotelOptions guest={guest} />
                </div>
@@ -154,7 +156,7 @@ const GuestCard =  forwardRef<HTMLDivElement, Props>(({ guest }, ref) => {
             {
                 guestAdded &&
                 <div className={classNames(styles.formField, styles.link)}>
-                 <a className={styles.delete} href="#" onClick={deleteGuest}>Delete Guest</a>
+                 <a className={styles.delete} href="#" onClick={deleteGuest}>{translations[locale].deleteGuest}</a>
                </div>
             }
         </div>

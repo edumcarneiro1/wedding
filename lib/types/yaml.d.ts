@@ -26,6 +26,18 @@ declare module '*.yaml' {
       presenceDescription: string;
       genericError: string;
       guestLimit: string;
+      confirmationHotelTitle: string;
+      confirmationTitle: string;
+      confirmationSubTitle: string;
+      confirmationGetinTouch: string;
+      confirmationHotelDescription: string;
+      confirmationTotalValue: string;
+      confirmationPaymentMethods: string;
+      confirmationBankTransfer: string;
+      confirmationPaymentNote: string;
+      confirmationNextSteps: string;
+      addNewGuest: string;
+      deleteGuest: string;
   }
   const value: {
     pt: translation;
@@ -33,3 +45,4 @@ declare module '*.yaml' {
   };
   export default value;
 }
+

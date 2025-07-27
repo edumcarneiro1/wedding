@@ -9,6 +9,7 @@ import translations from '@lib/locales/translations.yaml';
 
 import { ErrorModule } from "@components/error/error";
 import StartClientWrapper from "middlewares/StartClientWrapper";
+import SetGuestsAndRedirect from "middlewares/SetClients";
 
 
 export const dynamic = 'force-dynamic';
@@ -30,7 +31,10 @@ export default async function Home({ params }: { params: Params }) {
 
   if (!guests || guests.length === 0) {
     return <ErrorModule locale={locale}/>;
+  } else if (guests.filter(guest => !guest.confirmed).length === 0) {
+    return <SetGuestsAndRedirect guests={guests} locale={locale} />
   }
+
 
   const salut = () => {
     const elements: JSX.Element[] = [];
@@ -60,7 +64,7 @@ export default async function Home({ params }: { params: Params }) {
         <Image 
           className={styles.landingImage}
           src="/backgroundtest.png"
-          alt="Kuirius, pelo amor à comida"
+          alt="Casamento Rita e Eduardo"
           layout="fill"
           objectFit="cover"
           objectPosition='left'

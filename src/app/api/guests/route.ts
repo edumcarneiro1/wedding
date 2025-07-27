@@ -14,13 +14,9 @@ export async function POST(req: Request) {
     const errors: string[] = [];
 
     for (const guest of guests) {
-      guest.presence = guest.presence === null ? true : guest.presence;
+      guest.presence = guest.presence;
       guest.confirmed = true;
-      guest.days =
-        guest.hotel === HotelType.NOT_AVAILABLE ||
-        guest.hotel === HotelType.NO
-          ? null
-          : guest.days;
+      guest.days = guest.days;
       guest.hotel = guest.hotel === HotelType.NOT_CONFIRMED ? HotelType.YES : guest.hotel;
 
       if (guest.id && guest.id <= 900) {
@@ -33,11 +29,13 @@ export async function POST(req: Request) {
         }
       } else {
         delete guest.id;
-        const { error } = await supabaseServer
+        if(guest.presence) {
+          const { error } = await supabaseServer
           .from('guests')
           .insert([guest]);
-        if (error) {
-          errors.push(error.message);
+          if (error) {
+            errors.push(error.message);
+          }
         }
       }
     }
