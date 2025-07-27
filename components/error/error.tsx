@@ -1,18 +1,30 @@
 'use-client'
+import Image from "next/legacy/image";
 import styles from "./error.module.scss";
 import translations from '@lib/locales/translations.yaml';
-import Image from "next/legacy/image";
+
+import { headers } from 'next/headers';
+import MobileDetect from 'mobile-detect';
 
 type Props = {
   locale: 'pt' | 'en';
 };
 
-export const ErrorModule  = ({locale}: Props) => {
+export const ErrorModule  =  async ({locale}: Props) => {
+  const requestHeaders = headers();
+  const userAgent = (await requestHeaders).get('user-agent') || '';
+  const md = new MobileDetect(userAgent);
+  const isMobile = !!md.mobile();
+
+  const backgroundImage = isMobile
+    ? "/backgroundmWeb.png"
+    : "/backgroundWeb.png";
+  
     return (
       <>
         <Image 
             className={styles.landingImage}
-            src="/backgroundtest.png"
+            src={backgroundImage}
             alt="Kuirius, pelo amor à comida"
             layout="fill"
             objectFit="cover"

@@ -11,10 +11,16 @@ import { getGuestsFromLocalStorage } from "@lib/utils";
 import { HotelType, Type } from "@lib/types";
 
 import translations from '@lib/locales/translations.yaml';
+import { useIsMobile } from "@components/isMobile";
 
 export default function Confirmation() {
     const {  guests, setGuests, setLocale, locale } = useGuestContext();
     const params = useParams<{ locale: string }>();
+    const isMobile = useIsMobile();
+
+    const backgroundImage = isMobile
+    ? "/backgroundmWeb.png"
+    : "/backgroundWeb.png";
 
     useEffect(() => {
         const { locale: paramLocale } = params;
@@ -49,7 +55,7 @@ export default function Confirmation() {
     <>
       <Image 
         className={styles.landingImage}
-        src="/backgroundtest.png"
+        src={backgroundImage}
         alt="Casamento Rita e Eduardo"
         layout="fill"
         objectFit="cover"

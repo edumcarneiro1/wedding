@@ -4,6 +4,9 @@ import { Guest, HotelType } from '@lib/types';
 import { JSX, } from "react";
 import { redirect } from 'next/navigation';
 import Image from "next/legacy/image";
+import { headers } from 'next/headers';
+import MobileDetect from 'mobile-detect';
+
 
 import translations from '@lib/locales/translations.yaml';
 
@@ -18,6 +21,17 @@ type Params = Promise<{locale: string, token: string}>
 
 export default async function Home({ params }: { params: Params }) {
   const { token, locale } =  await params;
+
+  const requestHeaders = headers();
+  const userAgent = (await requestHeaders).get('user-agent') || '';
+  const md = new MobileDetect(userAgent);
+  const isMobile = !!md.mobile();
+
+
+  const backgroundImage = isMobile
+    ? "/backgroundmWeb.png"
+    : "/backgroundWeb.png";
+
 
   if (!token) {
     redirect('/pt');
@@ -63,7 +77,7 @@ export default async function Home({ params }: { params: Params }) {
     <>
         <Image 
           className={styles.landingImage}
-          src="/backgroundtest.png"
+          src={backgroundImage}
           alt="Casamento Rita e Eduardo"
           layout="fill"
           objectFit="cover"
