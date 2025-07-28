@@ -15,7 +15,7 @@ pt:
   restrictionsTitle: Restrições Alimentares
   restrictionsPlaceholder: Inserir aqui as suas restrições alimentares
   hotelSubText: Desactiva o switch se não quiseres ficar connosco no hotel.
-  hotelDescription: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+  hotelDescription: O Hotel Parque do Rio é o local onde se realizará o casamento, localizado no emblemático pinhal de Ofir. Podes selecionar estadia de 1 ou 2 noites, sendo que sábado (11/10) não haverá serviço de pequeno-almoço. Domingo (12/10) serviremos o brunch. Os quartos têm tipologia dupla e tripla - que vamos alocar conforme a necessidade de cada agregado.
   hotelNightsTitle: Noites
   hotelOneNightAdult: 1 noite (Sabado) - 50€ por adulto
   hotelOneNightKids: 1 noite (Sabado) - 0€ por criança
@@ -54,7 +54,7 @@ en:
   restrictionsTitle: Food Restrictions
   restrictionsPlaceholder: Write here your food restrictions
   hotelSubText: Turn off the switch if you dont want to stay with us at the hotel.
-  hotelDescription: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+  hotelDescription: The Parque do Rio Hotel is the location where the wedding will take place, located in the Ofir pine forest. You can select a stay of 1 or 2 nights. Note than on Saturday (11/10) the hotel won’t serve breakfast. On Sunday (12/10) we will have the brunch. The rooms are double and triple types – which we will assign according to each groups needs.
   hotelNightsTitle: Nights
   hotelOneNightAdult: 1 night (Saturday) - 50€ per adult
   hotelOneNightKids: 1 night (Saturday) - 0€ por kid
@@ -76,12 +76,3 @@ en:
   confirmationNextSteps: Stay tunned, soon you'll receive more information. If you need to change anything, please get in touch with us.
   addNewGuest: Add a new guest
   deleteGuest: Delete Guest
-
-
-
-
-
-
-
-
-
