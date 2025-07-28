@@ -1,6 +1,4 @@
 'use client';
-import Image from "next/legacy/image";
-
 import { useEffect } from "react";
 import { useParams } from 'next/navigation';
 

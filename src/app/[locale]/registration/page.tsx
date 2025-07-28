@@ -2,8 +2,6 @@
 import { JSX, useEffect, useState, useRef } from "react";
 import { redirect, useParams } from 'next/navigation';
 
-import { useRouter } from 'next/navigation';
-
 import styles from "./page.module.scss";
 import { useGuestContext } from "../../context/GuestContext";
 import { getGuestsFromLocalStorage, setGuestsToLocalStorage } from "@lib/utils";
@@ -24,8 +22,6 @@ export default function Registration() {
   const errorRef = useRef<HTMLDivElement>(null);
   const guestRefs = useRef<Record<number, HTMLDivElement | null>>({});
   const [lastAddedGuestId, setLastAddedGuestId] = useState<number | null>(null);
-
-  const router = useRouter();
 
   useEffect(() => {
     if (!guests) {
@@ -62,11 +58,11 @@ export default function Registration() {
 
 
   useEffect(() => {
-    if (guests && guests.length > 0 && guests.every(g => g.confirmed)) {
+    if (guests && guests.length > 0 && guests.filter(g => !g.confirmed).length === 0) {
       setGuestsToLocalStorage(guests);
-      router.push(`/${locale}/confirmation`);
+      redirect(`/${locale}/confirmation`);
     }
-  }, [guests, locale, router]);
+  }, [guests]);
 
   
 
@@ -113,7 +109,7 @@ export default function Registration() {
       if (guests) {
         setGuestsToLocalStorage(guests);
       }
-      router.push(`/${locale}/confirmation`);
+      redirect(`/${locale}/confirmation`);
     } else {
       setError(translations[locale].genericError);
     }

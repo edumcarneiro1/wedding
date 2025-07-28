@@ -1,5 +1,4 @@
 'use-client'
-import Image from "next/legacy/image";
 import styles from "./error.module.scss";
 import translations from '@lib/locales/translations.yaml';
 
