@@ -17,15 +17,17 @@ export const getGuests  = async (token: string): Promise<Guest[]> => {
 
 
 export const PostGuests = async (guests: Guest[]): Promise<{ success: boolean; error?: string }> => {
+  //test
   try {
+    console.log('1');
     const res = await fetch(`${baseUrl}/api/guests`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ guests })
     });
-
+    console.log('2');
     const data = await res.json();
-
+    console.log('3');
     if (!res.ok || !data.success) {
       return {
         success: false,
@@ -35,6 +37,7 @@ export const PostGuests = async (guests: Guest[]): Promise<{ success: boolean; e
 
     return { success: true };
   } catch (err) {
+    console.log('4');
     let message = "Network error";
     if (err instanceof Error) {
         message = err.message;
