@@ -101,20 +101,16 @@ export default function Registration() {
 
   const submit = async (event: React.FormEvent<HTMLFormElement>) : Promise<void> => {
     event.preventDefault(); 
-    if (guests) {
+    const response = await PostGuests(guests || []);
+  
+    if (response.success) {
+      if (guests) {
         setGuestsToLocalStorage(guests);
       }
       redirect(`/${locale}/confirmation`);
-    // const response = await PostGuests(guests || []);
-  
-    // if (response.success) {
-    //   if (guests) {
-    //     setGuestsToLocalStorage(guests);
-    //   }
-    //   redirect(`/${locale}/confirmation`);
-    // } else {
-    //   setError(translations[locale].genericError);
-    // }
+    } else {
+      setError(translations[locale].genericError);
+    }
   }
 
   const focus = (): void => {
