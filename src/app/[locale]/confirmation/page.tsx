@@ -11,16 +11,10 @@ import { getGuestsFromLocalStorage } from "@lib/utils";
 import { HotelType, Type } from "@lib/types";
 
 import translations from '@lib/locales/translations.yaml';
-import { useIsMobile } from "@components/isMobile";
 
 export default function Confirmation() {
     const {  guests, setGuests, setLocale, locale } = useGuestContext();
     const params = useParams<{ locale: string }>();
-    const isMobile = useIsMobile();
-
-    const backgroundImage = isMobile
-    ? "/backgroundmWeb.png"
-    : "/backgroundWeb.png";
 
     useEffect(() => {
         const { locale: paramLocale } = params;
@@ -53,14 +47,7 @@ export default function Confirmation() {
   
   return (
     <>
-      <Image 
-        className={styles.landingImage}
-        src={backgroundImage}
-        alt="Casamento Rita e Eduardo"
-        layout="fill"
-        objectFit="cover"
-        objectPosition='left'
-      />
+      <div className={styles.backgroundImage}></div>
       <div className={styles.page}>
         <h1>{title}</h1>
         <h2>{translations[locale].date},  
@@ -75,7 +62,7 @@ export default function Confirmation() {
             hotelAvailability && 
             <div className={styles.payment}>
                 <p>{translations[locale].confirmationHotelDescription}:</p>
-                <p>{translations[locale].confirmationTotalValue}: ${total}€</p>
+                <p>{translations[locale].confirmationTotalValue}: {total}€</p>
                 <p>{translations[locale].confirmationPaymentMethods}:</p>
                 <p>Revolut: +351915816784</p>
                 <p>MBWay: +351915816784</p>

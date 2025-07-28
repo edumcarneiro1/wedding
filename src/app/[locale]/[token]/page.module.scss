@@ -8,8 +8,8 @@
   z-index: 1;
   color: $white;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-  height: 100vh;
   padding: $spacer-m;
+  margin-top: $spacer-l + $spacer-l;
 
   @media (min-width: $breakPointTablet) {
     width: 80%;
@@ -96,6 +96,20 @@
   
 }
 
-.landingImage {
+.backgroundImage {
+   position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw;
+  height: 100vh;
   z-index: 0;
+  background-image: url('/backgroundmWeb.png'); 
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+  pointer-events: none;
+
+  @media (min-width: $breakPointPC) {
+    background-image: url('/backgroundWeb.png');
+  }
+  
 }
