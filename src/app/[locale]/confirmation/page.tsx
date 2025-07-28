@@ -64,7 +64,7 @@ export default function Confirmation() {
                 <p>{translations[locale].confirmationPaymentMethods}:</p>
                 <p>Revolut: +351915816784</p>
                 <p>MBWay: +351915816784</p>
-                <p>{translations[locale].confirmationBankTransfer}: PT50 2131 123123 123123</p>
+                <p>{translations[locale].confirmationBankTransfer}: PT50 0023 0000 45539017771 94</p>
                 <p>{translations[locale].confirmationPaymentNote}</p>
             </div>
           }
