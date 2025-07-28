@@ -2,13 +2,13 @@
 .page {
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   width: 100%;
   z-index: 1;
   color: $secondaryStrong;
   background-color: $white;
   padding: $spacer-m;
+  min-height: 100vh;
   
   .form {
     width: 100%;

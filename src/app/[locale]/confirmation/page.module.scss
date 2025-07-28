@@ -10,6 +10,7 @@
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
   padding: $spacer-m;
   margin-top: $spacer-m;
+  min-height: 100vh;
 
   @media (min-width: $breakPointTablet) {
     width: 80%;
@@ -73,6 +74,7 @@
       font-size: $font-sm;
       font-weight: 400;
       text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+      text-align: center;
 
       span { 
         font-weight: bold;

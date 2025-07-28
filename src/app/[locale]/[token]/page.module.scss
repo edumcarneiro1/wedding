@@ -9,7 +9,8 @@
   color: $white;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
   padding: $spacer-m;
-  margin-top: $spacer-l + $spacer-l;
+  // margin-top: $spacer-l + $spacer-l;
+  min-height: 100vh;
 
   @media (min-width: $breakPointTablet) {
     width: 80%;
