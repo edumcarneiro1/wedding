@@ -19,8 +19,9 @@ export default async function HotelPage({ params }: { params: Promise<{ locale?:
         return (
         <div>
             <p>{translations[locale].warmUpText1}</p>
-            <p>{translations[locale].warmUpText2}</p>
-            <p>{translations[locale].warmUpText3}</p>
+            <p>{translations[locale].warmUpText2} <a href="https://maps.app.goo.gl/YnHnGrTa92xRVust9" target="_blank">
+                    (Link)
+                    </a></p>
             <p>{translations[locale].warmUpText4}</p>
         </div>
         );
@@ -57,7 +58,7 @@ export default async function HotelPage({ params }: { params: Promise<{ locale?:
                     locale={locale} 
                     date={'11/10/2025'} 
                     hour={'16:30*'} 
-                    body={<Wedding locale={locale}/>} 
+                    body={<Wedding locale={locale} hotel={true}/>} 
                     title={translations[locale].weddingTitle}
                 />
                 <Day 

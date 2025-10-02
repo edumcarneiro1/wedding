@@ -28,7 +28,7 @@ export default async function Home({ params }: { params: Promise<{ locale?: stri
                     locale={locale} 
                     date={'11/10/2025'} 
                     hour={'16:30'} 
-                    body={<Wedding locale={locale}/>} 
+                    body={<Wedding locale={locale} hotel={false}/>} 
                 />
                 <Gift locale={locale}/>
                 <Photos locale={locale}/>

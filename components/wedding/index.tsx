@@ -6,12 +6,13 @@ type Locale = keyof typeof translations;
 
 type Props = {
     locale: Locale;
+    hotel: boolean;
 }
 
-const Wedding: FunctionComponent<Props> = ({locale}) => {
+const Wedding: FunctionComponent<Props> = ({locale, hotel}) => {
     return(
         <div className={styles.container}>
-            <p>* {translations[locale].weddingCheckIn}</p>
+            {hotel && <p>* {translations[locale].weddingCheckIn}</p>}
             <h3><span>{translations[locale].weddingLocal}</span>: Parque do Rio Ofir Hotel</h3>
             <h3><span>{translations[locale].weddingAddress}</span>: Caminho Padre Manuel de Sá Pereira Fão, 4741-908 Esposende</h3>
             <h3>
