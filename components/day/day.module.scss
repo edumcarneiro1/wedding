@@ -1,0 +1,47 @@
+@use "../../src/app/styles/variables" as *;
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    padding: $spacer-l 0 0 0;
+    @media (min-width: $breakPointPC) {
+      width: 80%;
+    }
+    p {
+      display: flex;
+      padding: $spacer-s 0;
+      justify-content: left;
+      align-items: center;
+      font-size: $font-sm;
+      font-weight: 400;
+      text-align: left;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+      width: 100%;
+
+      @media (min-width: $breakPointPC) {
+        padding: $spacer-s 0;
+      }
+    }
+
+    h3 {
+      font-size: $font-sm;
+      font-weight: 400;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+      width: 100%;
+      span { 
+        font-weight: bold;
+      }
+    }
+    h2 {
+      width: 100%;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+      padding: $spacer-s 0;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: $font-l;
+    }
+}

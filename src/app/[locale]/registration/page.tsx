@@ -62,7 +62,7 @@ export default function Registration() {
       setGuestsToLocalStorage(guests);
       redirect(`/${locale}/confirmation`);
     }
-  }, [guests]);
+  }, [guests, locale]);
 
   
 

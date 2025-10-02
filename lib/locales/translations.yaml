@@ -37,6 +37,36 @@ pt:
   confirmationNextSteps: Em breve irão receber mais informações, se tiverem alguma alteração a fazer por favor entrem em contacto connosco.
   addNewGuest: Adicionar um convidado
   deleteGuest: Apagar convidado
+  infoGreetings: Queridos convidados,
+  infoTitle: Estamos ansiosos pela chegada do nosso grande dia 
+  infoSteps: Queríamos partilhar alguns detalhes convosco
+  dateText: Data
+  hourText: Hora
+  warmUpText1: Para os hóspedes que chegam na 6a, o check-in poderá ser feito a partir das 12h00, e poderão usufruir da piscina e do espaço do hotel.
+  warmUpText2: Ao final da tarde (pelas 17h) estaremos no Barzin em Cepães, Esposende para um sunset. 
+  warmUpText3: Não necessita de marcação.
+  warmUpText4: Não existem planos para o jantar, depois o grupo decide.
+  hangoverText1: No domingo teremos um brunch para fechar as celebrações e, se a meteorologia cooperar (fingers crossed!), podemos usufruir da piscina.
+  hangoverText2: O fecho das festividades será pelas 15h00.
+  warmUpTitle: Dia 0 - Warm up
+  weddingTitle: Dia 1 - Casamento
+  hangoverTitle: Dia 2 - Hangover
+  weddingCheckIn: Para os convidados que vão ficar alojados no hotel e chegam no próprio dia, recomendamos que cheguem algum tempo antes da hora de início da cerimónia para fazerem o check-in.
+  weddingLocal: Local
+  weddingAddress: Morada
+  weddingParking: Estacionamento
+  weedingParkingText: No interior do recinto, existe um parque de estacionamento do lado esquerdo do hotel.
+  weedingParkingHelperText: O estacionamento é limitado, caso não haja disponibilidade, recomendamos estacionar nas torres de Ofir (menos de 5 minutos a pé do hotel).
+  giftTitle: A Note on Gifts
+  giftText1: O maior presente será ter-vos connosco. No entanto, se quiserem presentear-nos, deixamos os nossos dados bancários se não pretenderem numerário.
+  giftBankTransferTitle: Transferência Bancária
+  giftBankTransferOwner: Titular
+  photosTitle: Memory Board
+  photosText1: Adoraríamos que partilhassem connosco as vossas melhores fotos e vídeos.
+  photosText2: Podem scanear o QR Code e podem contribuir a partir do vosso telemóvel.
+  photosText3: Na festa também terão  QR code disponível para fazer upload dos vossos registos.
+  or: OU
+  
 en:
   title: Rita & Eduardo Wedding
   date: October 11
@@ -76,3 +106,32 @@ en:
   confirmationNextSteps: Stay tunned, soon you'll receive more information. If you need to change anything, please get in touch with us.
   addNewGuest: Add a new guest
   deleteGuest: Delete Guest
+  infoGreetings: Dear guests,
+  infoTitle: We are very much looking forward to our big day
+  infoSteps: We wanted to share some details with you
+  dateText: Date
+  hourText: Time
+  warmUpText1: For guests arriving on Friday, check-in can occur from 12h00 onwards, and you can enjoy the pool and the area. 
+  warmUpText2: In the late afternoon (around 17h), we will be at Barzin in Cepães, Esposende for a sunset.
+  warmUpText3: No reservation needed.
+  warmUpText4: For now, no plans for dinner, the group will decide later.
+  hangoverText1: On Sunday, we will close the celebrations with a brunch and, if the weather cooperates (fingers crossed!), we can enjoy the pool.
+  hangoverText2: The close of the festivities will be around 15h00. 
+  warmUpTitle: Day 0 - Warm up
+  weddingTitle: Day 1 - Wedding
+  hangoverTitle: Day 2 - Hangover
+  weddingCheckIn: For guests staying at the hotel and arriving on Saturday, we recommend arriving earlier than the start time to do the check-in. 
+  weddingLocal: Place
+  weddingAddress: Address
+  weddingParking: Parking
+  weedingParkingText: The hotel has a parking lot on its left side.
+  weedingParkingHelperText: The parking spots are limited; in case there isn’t availability, we recommend parking at the Ofir Towers (less than 5-minute walking distance from the hotel). 
+  giftTitle: A Note on Gifts
+  giftText1: Your presence at our wedding is the greatest gift of all. , If you wish to honour us with a gift, a cash gift would be very welcome, and we have provided our bank details below if you don't want to use cash.
+  giftBankTransferTitle: Bank Transfer
+  giftBankTransferOwner: Owner
+  photosTitle: Memory Board
+  photosText1: We would love it if you shared with us your best pictures and videos.
+  photosText2: You can scan the QR code with your phone so that you can share with us your memories. 
+  photosText3: At the party, there will also be a QR code available for you to upload your recordings.
+  or: OR

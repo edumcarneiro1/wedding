@@ -1,0 +1,116 @@
+@use './styles/variables' as *;
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  z-index: 1;
+  color: $white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  padding: $spacer-m;
+  // margin-top: $spacer-l + $spacer-l;
+  min-height: 100vh;
+
+  @media (min-width: $breakPointTablet) {
+    width: 80%;
+  }
+
+  @media (min-width: $breakPointPC) {
+    width: 50%;
+  }
+
+  h1 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: $spacer-s;
+    font-size: $font-l;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+
+    @media (min-width: $breakPointPhone) {
+      font-size: $font-xl;
+    }
+  }
+
+  h2 {
+    font-size: $font-m;
+    font-weight: 500;
+
+    a {
+      text-decoration: underline;
+      margin-left: $spacer-xs;
+    }
+  }
+  
+  .body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: $spacer-l 0;
+    @media (min-width: $breakPointPC) {
+      width: 80%;
+    }
+    p {
+      display: flex;
+      padding: $spacer-s $spacer-s;
+      justify-content: center;
+      align-items: center;
+      font-size: $font-sm;
+      font-weight: 400;
+      text-align: center;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+
+      @media (min-width: $breakPointPC) {
+        padding: $spacer-s $spacer-l;
+      }
+    }
+
+    h3 {
+      font-size: $font-sm;
+      font-weight: 400;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+
+      span { 
+        font-weight: bold;
+      }
+    }
+  
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    // padding: $spacer-m $spacer-m;
+
+    @media (min-width: $breakPointTablet) {
+      width: 200px;
+      padding: $spacer-m 0;
+    }
+  }
+  
+}
+
+.backgroundImage {
+   position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  background-image: url('/backgroundmWeb.png'); 
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+  pointer-events: none;
+
+  @media (min-width: $breakPointPC) {
+    background-image: url('/backgroundWeb.png');
+  }
+  
+}
